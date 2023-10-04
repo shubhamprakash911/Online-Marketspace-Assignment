@@ -1,3 +1,4 @@
+const asyncHandler = require("../middlewares/asyncHandler");
 const User = require("../models/userModel");
 const sendToken = require("../utils/sendToken");
 

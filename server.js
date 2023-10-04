@@ -2,6 +2,7 @@ require("dotenv").config();
 const express = require("express");
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
+const { userRoute } = require("./routes/userRoute");
 const app = express();
 
 app.use(express.json());
@@ -13,6 +14,8 @@ connectDB(); // db conection
 app.get("/", (req, res) => {
   res.send("server is running fine");
 });
+
+app.use("/api/users", userRoute);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
