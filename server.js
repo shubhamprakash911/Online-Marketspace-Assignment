@@ -3,6 +3,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const { userRoute } = require("./routes/userRoute");
+const listingRoute = require("./routes/listingRoute");
 const app = express();
 
 app.use(express.json());
@@ -16,6 +17,7 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/users", userRoute);
+app.use("/api/listing", listingRoute);
 
 const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
